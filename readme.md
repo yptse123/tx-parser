@@ -17,7 +17,6 @@ This project is a transaction parser that interacts with the Ethereum blockchain
 - [Project Structure](#project-structure)
 - [Endpoints](#endpoints)
 - [Testing](#testing)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
