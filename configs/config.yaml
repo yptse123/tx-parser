@@ -1,0 +1,7 @@
+server:
+  port: ":8088"  # Server port
+  host: "localhost"
+  ethrpc: "https://ethereum-rpc.publicnode.com"
+
+logging:
+  level: debug  # Available options: debug, info, warn, error
