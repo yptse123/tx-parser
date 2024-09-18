@@ -30,24 +30,24 @@ This project is a transaction parser that interacts with the Ethereum blockchain
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-repository/tx-parser.git
-   cd tx-parser
-   ```
+```bash
+git clone https://github.com/your-repository/tx-parser.git
+cd tx-parser
+```
 
 2. Install the Go dependencies:
 
-   ```bash
-   go mod tidy
-   ```
+```bash
+go mod tidy
+```
 
 ### Usage
 
 To start the application, you can run the following command:
 
-   ```bash
-   go run cmd/parser/main.go
-   ```
+```bash
+go run cmd/parser/main.go
+```
 
 By default, the application will start an HTTP server on localhost:8088 and expose several API endpoints for subscribing to addresses and fetching transactions.
 
@@ -55,36 +55,36 @@ By default, the application will start an HTTP server on localhost:8088 and expo
 
 The application configuration is stored in the config.yaml file. You can modify it to change the Ethereum RPC URL, logging level, or the server port.
 
-   ```yaml
-   server:
-      port: ":8088"  # Server port
-      host: "localhost"
-      ethrpc: "https://ethereum-rpc.publicnode.com"
+```yaml
+server:
+   port: ":8088"  # Server port
+   host: "localhost"
+   ethrpc: "https://ethereum-rpc.publicnode.com"
 
-   logging:
-      level: "debug"  # Available options: debug, info, warn, error
-   ```
+logging:
+   level: "debug"  # Available options: debug, info, warn, error
+```
 
 ### Project Structure
 
-   ```bash
-   .
-   ├── cmd
-   │   └── parser           # Main application entry point
-   ├── configs              # Configuration files
-   ├── internal
-   │   ├── api              # HTTP server and route handlers
-   │   ├── app              # Application setup and main logic
-   │   ├── config           # Configuration handling
-   │   ├── interfaces       # Interfaces for parser and storage
-   │   ├── parser           # Ethereum parser (fetching transactions and blocks)
-   │   ├── rpc              # Ethereum JSON-RPC client
-   │   └── storage          # In-memory storage for addresses and transactions
-   ├── pkg
-   │   └── logger           # Custom logger package
-   ├── scripts              # Any custom scripts
-   ├── utils                # Utility functions (e.g., address normalization)
-   ```
+```bash
+.
+├── cmd
+│   └── parser           # Main application entry point
+├── configs              # Configuration files
+├── internal
+│   ├── api              # HTTP server and route handlers
+│   ├── app              # Application setup and main logic
+│   ├── config           # Configuration handling
+│   ├── interfaces       # Interfaces for parser and storage
+│   ├── parser           # Ethereum parser (fetching transactions and blocks)
+│   ├── rpc              # Ethereum JSON-RPC client
+│   └── storage          # In-memory storage for addresses and transactions
+├── pkg
+│   └── logger           # Custom logger package
+├── scripts              # Any custom scripts
+├── utils                # Utility functions (e.g., address normalization)
+```
 
 ### Endpoints
 
@@ -94,35 +94,35 @@ Endpoint: /current-block
 Description: Fetches the latest block from the Ethereum blockchain.
 
 Example:
-   ```bash
-   curl http://localhost:8088/current-block
-   ```
+```bash
+curl http://localhost:8088/current-block
+```
 
 2. Subscribe to an Address
 Method: POST
 Endpoint: /subscribe
 Description: Subscribes to an Ethereum address to track its transactions.
 Example:
-   ```bash
-   curl -X POST http://localhost:8088/subscribe -d '{"address": "0xYourAddress"}' -H 'Content-Type: application/json'
-   ```
+```bash
+curl -X POST http://localhost:8088/subscribe -d '{"address": "0xYourAddress"}' -H 'Content-Type: application/json'
+```
 
 3. Get Transactions for an Address
 Method: GET
 Endpoint: /transactions/{address}
 Description: Fetches transactions (incoming and outgoing) for the specified Ethereum address.
 Example:
-   ```bash
-   curl http://localhost:8088/transactions/0xYourAddress
-   ```
+```bash
+curl http://localhost:8088/transactions/0xYourAddress
+```
 
 ### Testing
 
 The project includes unit tests for the core components such as the Ethereum parser, RPC client, and in-memory storage. To run the tests, use the following command:
 
-   ```bash
-   go test ./...
-   ```
+```bash
+go test ./...
+```
 
 This will execute all the tests in the project and provide coverage for critical functionality like subscribing to addresses, fetching blocks, and tracking transactions.
 
