@@ -31,7 +31,7 @@ This project is a transaction parser that interacts with the Ethereum blockchain
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-repository/tx-parser.git
+git clone https://github.com/yptse123/tx-parser.git
 cd tx-parser
 ```
 
